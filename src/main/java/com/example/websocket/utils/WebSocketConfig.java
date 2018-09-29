@@ -1,5 +1,6 @@
 package com.example.websocket.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.session.StandardSessionFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +8,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.HandshakeResponse;
+import javax.websocket.Session;
 import javax.websocket.server.HandshakeRequest;
 import javax.websocket.server.ServerEndpointConfig;
 import javax.websocket.server.ServerEndpointConfig.Configurator;
@@ -14,6 +16,7 @@ import javax.websocket.server.ServerEndpointConfig.Configurator;
 /**
  * @author huoNan
  */
+@Slf4j
 @Configuration
 public class WebSocketConfig extends Configurator {
 
@@ -25,7 +28,7 @@ public class WebSocketConfig extends Configurator {
             HttpSession httpSession = (HttpSession) request.getHttpSession();
             //关键操作
             sec.getUserProperties().put("sessionId", httpSession.getId());
-            System.out.println("获取到的SessionID：" + httpSession.getId());
+            log.info("获取到的SessionID：" + httpSession.getId());
         }
     }
 
