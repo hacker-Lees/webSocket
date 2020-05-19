@@ -8,7 +8,6 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.HandshakeResponse;
-import javax.websocket.Session;
 import javax.websocket.server.HandshakeRequest;
 import javax.websocket.server.ServerEndpointConfig;
 import javax.websocket.server.ServerEndpointConfig.Configurator;
